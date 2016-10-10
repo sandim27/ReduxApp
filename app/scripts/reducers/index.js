@@ -1,7 +1,3 @@
-import countries from './countries';
-import details from './details';
-import showInfo from './showInfo';
+import photos from './photos';
 
-export {countries};
-export {details};
-export {showInfo};
+export {photos};
