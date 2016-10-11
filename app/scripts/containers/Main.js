@@ -1,10 +1,13 @@
 import { default as React, Component } from 'react';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
-import {bindActionCreators} from 'redux';
+import { bindActionCreators } from 'redux';
 import * as actionCreators from '../actions';
 
 class Main extends Component {
+  componentDidMount() {
+    this.props.getUsers();
+  }
   render() {
     return (
       <div>

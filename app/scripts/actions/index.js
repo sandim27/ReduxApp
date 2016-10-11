@@ -1,5 +1,5 @@
 import testAction from './testAction';
-import getUsers from './getUsers';
+import getUsers from './getPhotos';
 
 export { testAction };
 export { getUsers };

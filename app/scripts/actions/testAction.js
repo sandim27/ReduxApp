@@ -1,3 +1,7 @@
-export default function testActions() {
-  console.log('testActions');
+export default function testActions(data) {
+  return {
+    type: 'GET_USER',
+    action: data,
+  };
 }
+

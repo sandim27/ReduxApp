@@ -4,20 +4,26 @@ import logger from 'redux-logger';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 
-import * as reducers from './reducers';
-import promiseUsers from './middlewares/promiseUsers';
+import photos from './reducers/photos';
+import photo from './reducers/photo';
+
+import promiseUsers from './middlewares/promisePhotos';
 
 const enchancers = compose(
   window.devToolsExtension ? window.devToolsExtension() : f => f
 );
 
-const reducer = combineReducers(Object.assign({}, reducers, { routing: routerReducer }));
+const reducer = combineReducers({
+  photos,
+  photo,
+  routing: routerReducer,
+});
 
 const createStoreWithMiddleware = applyMiddleware(promiseUsers, logger())(createStore);
 
 const store = createStoreWithMiddleware(reducer, {
-  photos: ['sdf'],
-  photo: ['sdf'],
+  photos: [],
+  photo: [],
 }, enchancers);
 
 
