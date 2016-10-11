@@ -1,6 +1,8 @@
 import { default as React, Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import Header from '../components/Header';
+import {bindActionCreators} from 'redux';
+import * as actionCreators from '../actions';
 
 class Main extends Component {
   render() {
@@ -13,10 +15,15 @@ class Main extends Component {
   }
 }
 
-function mapStateToProps() {
+function mapStateToProps(state) {
   return {
-    photos: ['photo1', 'photo2']
+    photos: state.photos,
+    photo: state.photo
   };
 }
 
-export default connect(mapStateToProps)(Main);
+function mapDispachToProps(dispatch) {
+  return bindActionCreators(actionCreators, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispachToProps)(Main);

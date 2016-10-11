@@ -1,6 +1,6 @@
 export default function (state = [], action) {
   switch (action.type) {
-    case 'LOADED_USERS':
+    case 'GET_USER':
       return action.data;
     default:
       return state;

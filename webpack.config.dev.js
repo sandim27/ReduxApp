@@ -24,12 +24,16 @@ module.exports = {
         hot:true
     },
     module: {
+
         preLoaders: [
             {
                 test: /\.js$/,
                 loaders: ['eslint'],
                 include: [
                     path.resolve(__dirname, "app/scripts"),
+                ],
+                exclude: [
+                    path.resolve(__dirname, "app/scripts/containers"),
                 ],
             }
         ],
