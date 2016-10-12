@@ -7,14 +7,14 @@ import store, { history } from './store';
 
 import Main from './containers/Main';
 import Home from './containers/Home';
-import PhotosGrid from './containers/PhotosGrid';
+import Photos from './containers/Photos';
 
 const router = (
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={Main}>
         <IndexRoute component={Home} />
-        <Route path="photos" component={PhotosGrid} />
+        <Route path="photos" component={Photos} />
       </Route>
     </Router>
   </Provider>
