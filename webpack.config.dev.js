@@ -47,14 +47,6 @@ module.exports = {
                 plugins: ['transform-runtime'],
             },
             {
-                test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader!resolve-url!sass-loader?sourceMap')
-            },
-            {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
-            },
-            {
                 test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 loader: "url-loader?limit=10000&minetype=application/font-woff"
             },
@@ -65,11 +57,19 @@ module.exports = {
             {
                 test: /\.(jpg|png|gif)$/i,
                 loader: 'file-loader?name=images/[name].[ext]'
-            }
+            },
+            {
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader!resolve-url!sass-loader!')
+            },
+            {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+            },
         ]
     },
     resolve : {
-        extensions: ['', '.js', '.css'],
+        extensions: ['', '.js', '.css','scss'],
         alias: {
             bootstrapCss : path.join(__dirname, 'node_modules/bootstrap/dist/css/bootstrap.css')
         }
