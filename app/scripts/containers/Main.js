@@ -21,6 +21,7 @@ class Main extends Component {
 function mapStateToProps(state) {
   return {
     photos: state.photos,
+    page: Number(state.routing.locationBeforeTransitions.query.page) || 1,
     photo: state.photo
   };
 }
