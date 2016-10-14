@@ -1,8 +1,10 @@
 import { default as React, Component } from 'react';
 import { connect } from 'react-redux';
-import Header from '../components/Header';
+import Header from '../../components/Header';
 import { bindActionCreators } from 'redux';
-import * as actionCreators from '../actions';
+import * as actionCreators from '../../actions';
+
+import './assets/main.scss'
 
 class Main extends Component {
   componentDidMount() {
@@ -11,7 +13,7 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <Header/>
+        <Header page={this.props.page}/>
         {React.cloneElement(this.props.children, this.props)}
       </div>
     );
@@ -21,7 +23,7 @@ class Main extends Component {
 function mapStateToProps(state) {
   return {
     photos: state.photos,
-    page: state.page||1,
+    page: state.page,
     photo: state.photo
   };
 }

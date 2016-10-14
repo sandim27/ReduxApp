@@ -7,7 +7,7 @@ module.exports = {
     entry: [
         'webpack-dev-server/client?http://localhost:8080',
         'webpack/hot/only-dev-server',
-        './app/scripts/app'
+        './app/client/app'
     ],
     output: {
         path: __dirname,
@@ -30,10 +30,10 @@ module.exports = {
                 test: /\.js$/,
                 loaders: ['eslint'],
                 include: [
-                    path.resolve(__dirname, "app/scripts"),
+                    path.resolve(__dirname, "app/client"),
                 ],
                 exclude: [
-                    path.resolve(__dirname, "app/scripts/containers"),
+                    path.resolve(__dirname, "app/client/containers"),
                 ],
             }
         ],
@@ -41,7 +41,7 @@ module.exports = {
             {   test: /\.js$/,
                 loaders: ['react-hot', 'babel-loader'],
                 include: [
-                    path.resolve(__dirname, "app/scripts"),
+                    path.resolve(__dirname, "app/client"),
                 ],
                 test: /\.js$/,
                 plugins: ['transform-runtime'],
@@ -69,9 +69,10 @@ module.exports = {
         ]
     },
     resolve : {
-        extensions: ['', '.js', '.css','scss'],
+        extensions: ['', '.js', '.css','.scss'],
         alias: {
-            bootstrapCss : path.join(__dirname, 'node_modules/bootstrap/dist/css/bootstrap.css')
+            bootstrapCss : path.join(__dirname, 'node_modules/bootstrap/dist/css/bootstrap.css'),
+            fontAwesomeCss : path.join(__dirname, 'node_modules/bootstrap/dist/css/bootstrap.css')
         }
     }
 }

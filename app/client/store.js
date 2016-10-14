@@ -34,7 +34,11 @@ const createStoreWithMiddleware = applyMiddleware(
 
 const store = createStoreWithMiddleware(reducer, {
   photos: [],
-  page: null,
+  page: {
+    url: 1,
+    perPage: 12,
+    counter: 0,
+  },
   photo: [],
 }, enchancers);
 

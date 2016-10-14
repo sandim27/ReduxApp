@@ -5,7 +5,7 @@ import { Router, Route, IndexRoute } from 'react-router';
 import { Provider } from 'react-redux';
 import store, { history } from './store';
 
-import Main from './containers/Main';
+import Main from './containers/Main/index';
 import Home from './containers/Home';
 import Photos from './containers/Photos';
 

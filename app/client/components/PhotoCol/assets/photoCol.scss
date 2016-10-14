@@ -1,0 +1,17 @@
+.thumbnail {
+  .caption{
+    position: relative;
+    height:100px;
+  }
+  button {
+    position: absolute;
+    left:9px;
+    bottom: 10px;
+  }
+  .fa-comment-o{
+    position: absolute;
+    right:9px;
+    bottom: 13px;
+    font-size: 20px;
+  }
+}
