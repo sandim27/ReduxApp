@@ -3,8 +3,8 @@ import 'bootstrapCss';
 import React from 'react';
 import { Grid, Row, Thumbnail, Button, Col } from 'react-bootstrap';
 import { push } from 'react-router-redux';
-//import PhotoGrid from '../components/PhotoGrid'
 import store from '../store';
+//import PhotoGrid from '../components/PhotoGrid'
 
 export default class Photos extends React.Component {
 
