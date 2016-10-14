@@ -2,22 +2,24 @@ import { Pagination } from 'react-bootstrap';
 import 'bootstrapCss';
 import React from 'react';
 import { Grid, Row, Thumbnail, Button, Col } from 'react-bootstrap';
-
+import { push } from 'react-router-redux';
 //import PhotoGrid from '../components/PhotoGrid'
+import store from '../store';
 
 export default class Photos extends React.Component {
 
   constructor(props) {
     super(props);
-    this.handleSelect = this.props.changePage.bind(this);
+    this.changePage = this.props.changePage.bind(this);
   }
 
   render() {
-    console.log(this.props.page);
+
     const per_page = 10;
     const pages = Math.ceil(this.props.photos.length/per_page);
-    const start_offset = per_page*this.props.page;
+    const start_offset = (per_page-1)*this.props.page;
     let start_count = 0;
+
     return (
       <section className="photoGrid">
         <h1>Photos</h1>
@@ -51,7 +53,7 @@ export default class Photos extends React.Component {
           bsSize="small"
           items={pages}
           activePage={this.props.page}
-          onSelect={this.handleSelect} />
+          onSelect={this.changePage} />
       </section>
     );
   }

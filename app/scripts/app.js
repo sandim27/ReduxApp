@@ -14,7 +14,7 @@ const router = (
     <Router history={history}>
       <Route path="/" component={Main}>
         <IndexRoute component={Home} />
-        <Route path="photos" component={Photos} />
+        <Route path="photos/:page" component={Photos} />
       </Route>
     </Router>
   </Provider>

@@ -9,11 +9,10 @@ const Header = () => (
     <IndexLinkContainer to="/">
       <NavItem eventKey={1}>Home</NavItem>
     </IndexLinkContainer>
-    <LinkContainer to="/photos">
+    <LinkContainer to="/photos/1">
       <NavItem eventKey={2}>Photos</NavItem>
     </LinkContainer>
   </Nav>
-
 );
 
 export default Header;
