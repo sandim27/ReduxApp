@@ -5,7 +5,6 @@ import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-rou
 import { browserHistory } from 'react-router';
 
 import photos from './reducers/photos';
-import photo from './reducers/photo';
 import page from './reducers/page';
 
 import promiseUsers from './middlewares/promisePhotos';
@@ -20,7 +19,6 @@ const enchancers = compose(
 
 const reducer = combineReducers({
   photos,
-  photo,
   page,
   routing: routerReducer,
 });
@@ -39,7 +37,6 @@ const store = createStoreWithMiddleware(reducer, {
     perPage: 12,
     counter: 0,
   },
-  photo: [],
 }, enchancers);
 
 

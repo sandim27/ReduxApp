@@ -8,11 +8,11 @@ import PhotoCol from '../PhotoCol';
 const PhotoGrid = (props) => {
   const perPage = props.page.perPage;
 
-  const startOffset = (perPage - 1) * props.page.url;
+  const startOffset = (perPage - 1) * (props.page.url - 1);
   const endOffset = ((perPage - 1) * props.page.url) + perPage;
 
   const filteredPhotos = props.photos.filter(
-    (photo, index) => index >= startOffset && index < endOffset
+    (photo, index) => index >= startOffset && index <= endOffset
   );
 
   return (
