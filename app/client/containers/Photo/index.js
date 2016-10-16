@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const Photo = (props) => {
   const i = props.photos.findIndex(photo => photo.id == props.params.id);
   const photo = props.photos[i];
