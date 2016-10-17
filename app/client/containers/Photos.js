@@ -12,7 +12,7 @@ export default class Photos extends React.Component {
   }
 
   render() {
-    const pages = Math.ceil(this.props.photos.length/this.props.page.perPage);
+    const pages = Math.ceil(this.props.photos.length/this.props.defaultSettings.perPage);
     return (
       <section className="photoGrid">
         <h1>Photos</h1>
@@ -25,7 +25,7 @@ export default class Photos extends React.Component {
           boundaryLinks
           bsSize="small"
           items={pages}
-          activePage={this.props.page.url}
+          activePage={this.props.defaultSettings.url}
           onSelect={this.changePage} />
       </section>
     );

@@ -6,13 +6,13 @@ import './assets/photoGrid.scss';
 import PhotoCol from '../PhotoCol';
 
 const PhotoGrid = (props) => {
-  const perPage = props.page.perPage;
+  const perPage = props.defaultSettings.perPage;
 
-  const startOffset = (perPage - 1) * (props.page.url - 1);
-  const endOffset = ((perPage - 1) * props.page.url) + perPage;
+  const startOffset = perPage * (props.defaultSettings.url - 1);
+  const endOffset = perPage * props.defaultSettings.url;
 
   const filteredPhotos = props.photos.filter(
-    (photo, index) => index >= startOffset && index <= endOffset
+    (photo, index) => index >= startOffset && index < endOffset
   );
 
   return (
@@ -28,7 +28,7 @@ const PhotoGrid = (props) => {
 
 PhotoGrid.propTypes = {
   photos: React.PropTypes.array,
-  page: React.PropTypes.object,
+  defaultSettings: React.PropTypes.object,
 };
 
 export default PhotoGrid;

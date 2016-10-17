@@ -1,0 +1,26 @@
+.photo-view {
+  .photo-view_img {
+    img{
+      display: block;
+      width:600px;
+      padding: 20px 0 40px 0;
+    }
+  }
+  .photo-view_comments {
+    display: block;
+    width: 600px;
+    padding-left: 0px;
+    li{
+      display: flex;
+      list-style: none;
+      margin-bottom: 30px;
+    }
+    strong{
+      color: #365899;
+      margin-right:10px;
+    }
+    img{
+      margin-right:6px;
+    }
+  }
+}

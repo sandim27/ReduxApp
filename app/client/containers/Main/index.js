@@ -13,7 +13,7 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <Header page={this.props.page}/>
+        <Header defaultSettings={this.props.defaultSettings}/>
         {React.cloneElement(this.props.children, this.props)}
       </div>
     );
@@ -23,7 +23,7 @@ class Main extends Component {
 function mapStateToProps(state) {
   return {
     photos: state.photos,
-    page: state.page,
+    defaultSettings: state.defaultSettings,
     photo: state.photo
   };
 }
