@@ -1,22 +1,19 @@
 import React from 'react';
-import './assets/photo.scss'
-import Comments from '../../components/Comments';
+import Comments from '../components/Comments';
+import SinglePhoto from '../components/SinglePhoto';
 
-class Photo extends React.Component {
+class PhotoView extends React.Component {
   render() {
     const index = this.props.photos.findIndex(photo => photo.id == this.props.params.id);
     const photo = this.props.photos[index];
+
     return (
       <div className="photo-view">
-        <h1>{photo.name}</h1>
-
-        <div className="photo-view_img">
-          <img src={photo.image} alt="photo"/>
-        </div>
+        <SinglePhoto photo={photo} />
         <Comments {...this.props} photo={photo} index={index}/>
       </div>
     )
   }
 };
 
-export default Photo;
+export default PhotoView;

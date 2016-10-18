@@ -1,6 +1,8 @@
 import React from 'react';
 import './assets/comments.scss';
 
+import Comment from '../Comment';
+
 export default class Comments extends React.Component {
   constructor(props) {
     super(props);
@@ -13,30 +15,30 @@ export default class Comments extends React.Component {
     const author = this.refs.author.value;
     const comment = this.refs.comment.value;
     const myAvatar = this.props.defaultSettings.myAvatar;
-    this.refs.commentForm.reset();
     this.props.addComment(myAvatar, author, comment, index);
+    this.refs.commentForm.reset();
   }
 
   render() {
     return (
-      <ul className="photo-view_comments">
-        { this.props.photo.comments.map((comment, index) => (
-          <li key={index}>
-            <span>
-              <img src={comment.avatar} alt="avatar" />
-            </span>
-            <strong>{comment.name} </strong>
-            <i>{comment.text}</i>
-          </li>
-        ))}
-        <li>
-          <form ref="commentForm" className="comment-form" onSubmit={this.handleSubmit}>
-            <input type="text" ref="author" placeholder="author" />
-            <input type="text" ref="comment" placeholder="comment" />
-            <input type="submit" hidden />
-          </form>
-        </li>
-      </ul>
+      <div>
+        <ul className="photo-view_comments">
+          { this.props.photo.comments.map((comment, indexComment) => (
+            <Comment
+              key={indexComment}
+              comment={comment}
+              indexComment={indexComment}
+              indexPhoto={this.props.index}
+              removeComment={this.props.removeComment}
+            />
+          ))}
+        </ul>
+        <form ref="commentForm" className="comment-form" onSubmit={this.handleSubmit}>
+          <input type="text" ref="author" placeholder="author" />
+          <input type="text" ref="comment" placeholder="comment" />
+          <input type="submit" hidden />
+        </form>
+      </div>
     );
   }
 }
@@ -46,4 +48,5 @@ Comments.propTypes = {
   index: React.PropTypes.number,
   addComment: React.PropTypes.func,
   defaultSettings: React.PropTypes.object,
+  removeComment: React.PropTypes.func,
 };

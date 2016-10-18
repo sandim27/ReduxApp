@@ -4,6 +4,7 @@ export default function (state = [], action) {
   switch (action.type) {
     case types.LOADED_PHOTOS:
       return action.data;
+
     case types.ADD_COMMENT: {
       const i = action.newComment.index;
       const newComment = {
@@ -21,6 +22,23 @@ export default function (state = [], action) {
         },
         ...state.slice(i + 1),
       ]; }
+
+    case types.REMOVE_COMMENT: {
+      const iPhoto = action.indexPhoto;
+      const iComment = action.indexComment;
+
+      return [
+        ...state.slice(0, iPhoto),
+        {
+          ...state[iPhoto],
+          comments: [
+            ...state[iPhoto].comments.slice(0, iComment),
+            ...state[iPhoto].comments.slice(iComment + 1),
+          ],
+        },
+        ...state.slice(iPhoto + 1),
+      ];
+    }
     default:
       return state;
   }

@@ -5,4 +5,4 @@ export const LOAD_FAILURE_PHOTOS = 'LOAD_FAILURE_PHOTOS';
 export const CHANGE_PAGE = 'CHANGE_PAGE';
 export const SAVE_NEW_PAGE = 'SAVE_NEW_PAGE';
 export const ADD_COMMENT = 'ADD_COMMENT';
-
+export const REMOVE_COMMENT = 'REMOVE_COMMENT';
