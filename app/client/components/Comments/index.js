@@ -1,6 +1,5 @@
 import React from 'react';
 import './assets/comments.scss';
-
 import Comment from '../Comment';
 
 export default class Comments extends React.Component {
@@ -21,8 +20,8 @@ export default class Comments extends React.Component {
 
   render() {
     return (
-      <div>
-        <ul className="photo-view_comments">
+      <div className="photo-view_comments">
+        <ul>
           { this.props.photo.comments.map((comment, indexComment) => (
             <Comment
               key={indexComment}
