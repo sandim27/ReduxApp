@@ -7,10 +7,10 @@ const config = {
   storageBucket: 'todomvc-de17d.appspot.com',
   messagingSenderId: '350624416369',
 };
-
 Firebase.initializeApp(config);
+
+const storage = Firebase.storage();
 const database = Firebase.database();
 
-export default function getFromFirebase() {
-  return database.ref().once('value').then(data => data.val());
-}
+export { storage };
+export { database };

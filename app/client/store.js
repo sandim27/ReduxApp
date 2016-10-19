@@ -6,10 +6,11 @@ import { browserHistory } from 'react-router';
 
 import photos from './reducers/photos';
 import defaultSettings from './reducers/defaultSettings';
+import photo from './reducers/photo';
 
 import promiseUsers from './middlewares/promisePhotos';
 import changePage from './middlewares/changePage';
-
+import uploadImage from './middlewares/uploadImage';
 
 const middlewareRoute = routerMiddleware(browserHistory);
 
@@ -20,12 +21,14 @@ const enchancers = compose(
 const reducer = combineReducers({
   photos,
   defaultSettings,
+  photo,
   routing: routerReducer,
 });
 
 const createStoreWithMiddleware = applyMiddleware(
     promiseUsers,
     changePage,
+    uploadImage,
     middlewareRoute,
     logger()
 )(createStore);
@@ -37,6 +40,10 @@ const store = createStoreWithMiddleware(reducer, {
     perPage: 12,
     counter: 0,
     myAvatar: 'https://robohash.org/eumetea.bmp?size=20x20&set=set1',
+  },
+  photo: {
+    name: '',
+    url: '',
   },
 }, enchancers);
 

@@ -39,6 +39,14 @@ export default function (state = [], action) {
         ...state.slice(iPhoto + 1),
       ];
     }
+    case types.ADD_PHOTO:
+      return [
+        ...state, {
+          name: action.name,
+          image: action.image,
+          id: action.id + 1,
+          comments: [],
+        }];
     default:
       return state;
   }

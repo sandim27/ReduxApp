@@ -1,5 +1,9 @@
 import * as types from '../constants/ActionTypes';
-import getFromFirebase from '../api/photos';
+import { database } from '../api/photos';
+
+function getFromFirebase() {
+  return database.ref().once('value').then(data => data.val());
+}
 
 export default function getUsers() {
   return {
