@@ -12,7 +12,7 @@ const middleware = store => next => (action) => {
     id: action.id + 1,
     comments: [],
   }).then(() => store.dispatch({
-    type: 'PROMISE',
+    type: types.GET_PHOTOS,
     actions: [types.LOADING_PHOTOS, types.LOADED_PHOTOS, types.LOAD_FAILURE_PHOTOS],
     promise: database.ref().once('value').then(data => data.val()),
   }));

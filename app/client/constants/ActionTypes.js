@@ -1,4 +1,4 @@
-export const PROMISE = 'PROMISE';
+export const GET_PHOTOS = 'GET_PHOTOS';
 export const LOADING_PHOTOS = 'LOADING_PHOTOS';
 export const LOADED_PHOTOS = 'LOADED_PHOTOS';
 export const LOAD_FAILURE_PHOTOS = 'LOAD_FAILURE_PHOTOS';

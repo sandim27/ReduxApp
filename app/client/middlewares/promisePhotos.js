@@ -1,7 +1,7 @@
 import * as types from '../constants/ActionTypes';
 
 const middleware = store => next => (action) => {
-  if (action.type !== types.PROMISE) {
+  if (action.type !== types.GET_PHOTOS) {
     return next(action);
   }
   const [startAction, successAction, failureAction] = action.actions;

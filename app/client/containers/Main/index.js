@@ -8,7 +8,7 @@ import './assets/main.scss'
 
 class Main extends Component {
   componentDidMount() {
-    this.props.getUsers();
+    this.props.getPhotos();
   }
   render() {
     return (

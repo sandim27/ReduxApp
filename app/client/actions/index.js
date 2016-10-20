@@ -1,11 +1,11 @@
-import getUsers from './getPhotos';
+import getPhotos from './getPhotos';
 import changePage from './changePage';
 import addComment from './addComment';
 import removeComment from './removeComment';
 import uploadImage from './uploadImage';
 import addNewPhoto from './addNewPhoto';
 
-export { getUsers };
+export { getPhotos };
 export { changePage };
 export { addComment };
 export { removeComment };

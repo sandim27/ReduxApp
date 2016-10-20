@@ -5,9 +5,9 @@ function getFromFirebase() {
   return database.ref().once('value').then(data => data.val());
 }
 
-export default function getUsers() {
+export default function getPhotos() {
   return {
-    type: 'PROMISE',
+    type: types.GET_PHOTOS,
     actions: [types.LOADING_PHOTOS, types.LOADED_PHOTOS, types.LOAD_FAILURE_PHOTOS],
     promise: getFromFirebase(),
   };
