@@ -12,6 +12,7 @@ import promiseUsers from './middlewares/promisePhotos';
 import changePage from './middlewares/changePage';
 import uploadImage from './middlewares/uploadImage';
 import addNewPhoto from './middlewares/addNewPhoto';
+import deletePhoto from './middlewares/deletePhoto';
 
 const middlewareRoute = routerMiddleware(browserHistory);
 
@@ -31,6 +32,7 @@ const createStoreWithMiddleware = applyMiddleware(
     changePage,
     uploadImage,
     addNewPhoto,
+    deletePhoto,
     middlewareRoute,
     logger()
 )(createStore);

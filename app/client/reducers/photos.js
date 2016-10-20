@@ -39,6 +39,13 @@ export default function (state = [], action) {
         ...state.slice(iPhoto + 1),
       ];
     }
+    case types.DELETE_STORE_PHOTO: {
+      const id = action.id;
+      return [
+        ...state.slice(0, id),
+        ...state.slice(id + 1),
+      ];
+    }
     default:
       return state;
   }
