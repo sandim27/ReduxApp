@@ -15,7 +15,6 @@ export default class Photos extends React.Component {
     const pages = Math.ceil(this.props.photos.length/this.props.defaultSettings.perPage);
     return (
       <section className="photoGrid">
-        <h1>Photos</h1>
         <PhotoGrid {...this.props}/>
         <Pagination
           next

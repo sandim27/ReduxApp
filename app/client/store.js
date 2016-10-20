@@ -11,6 +11,7 @@ import photo from './reducers/photo';
 import promiseUsers from './middlewares/promisePhotos';
 import changePage from './middlewares/changePage';
 import uploadImage from './middlewares/uploadImage';
+import addNewPhoto from './middlewares/addNewPhoto';
 
 const middlewareRoute = routerMiddleware(browserHistory);
 
@@ -29,6 +30,7 @@ const createStoreWithMiddleware = applyMiddleware(
     promiseUsers,
     changePage,
     uploadImage,
+    addNewPhoto,
     middlewareRoute,
     logger()
 )(createStore);

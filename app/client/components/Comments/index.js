@@ -22,7 +22,7 @@ export default class Comments extends React.Component {
     return (
       <div className="photo-view_comments">
         <ul>
-          { this.props.photo.comments.map((comment, indexComment) => (
+          { this.props.photo.comments ? this.props.photo.comments.map((comment, indexComment) => (
             <Comment
               key={indexComment}
               comment={comment}
@@ -30,7 +30,7 @@ export default class Comments extends React.Component {
               indexPhoto={this.props.index}
               removeComment={this.props.removeComment}
             />
-          ))}
+          )) : null}
         </ul>
         <form ref="commentForm" className="comment-form" onSubmit={this.handleSubmit}>
           <input type="text" ref="author" placeholder="author" />

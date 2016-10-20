@@ -6,11 +6,11 @@ import './assets/photoCol.scss';
 
 const PhotoCol = ({ photo }) => {
   const tooltip = (
-    <Tooltip id="tooltip">{photo.comments.map(
+    <Tooltip id="tooltip">{photo.comments ? photo.comments.map(
       (comment, index) => (
         <strong key={index}>{comment.name}<br /></strong>
       )
-    )}</Tooltip>
+    ) : null}</Tooltip>
   );
 
   return (
@@ -23,7 +23,9 @@ const PhotoCol = ({ photo }) => {
           </LinkContainer>
         </p>
         <OverlayTrigger overlay={tooltip} placement="bottom">
-          <div className="fa fa-comment-o" aria-hidden="true"> {photo.comments.length}</div>
+          <div className="fa fa-comment-o" aria-hidden="true">
+            {photo.comments ? photo.comments.length : 0}
+          </div>
         </OverlayTrigger>
       </Thumbnail>
     </Col>
