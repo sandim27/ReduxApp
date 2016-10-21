@@ -16,7 +16,7 @@ export default function (state = [], action) {
         ...state.slice(0, i),
         { ...state[i],
           comments: [
-            ...state[i].comments ? { ...state[i].comments } : '',
+            ...state[i].comments ? state[i].comments : '',
             newComment,
           ],
         },

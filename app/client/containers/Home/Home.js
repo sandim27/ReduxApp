@@ -31,9 +31,10 @@ export default class Home extends React.Component {
   }
 
   addNewPhoto() {
+    const lengthPhotos =  this.props.photos.length - 1;
     const name = this.state.name;
     const image = this.props.photo.url;
-    const id = this.props.photos.length;
+    const id = this.props.photos[lengthPhotos].id;
     this.props.addNewPhoto(name,image,id);
   }
 
