@@ -6,13 +6,13 @@ const middleware = store => next => (action) => {
   if (action.type !== types.DELETE_PHOTO) {
     return next(action);
   }
-  database.ref().child(action.id).remove().then(() => {
+  database.ref(action.id - 1).remove().then(() => {
     store.dispatch(
       push(`/photos/${action.page}`)
     );
     store.dispatch({
       type: types.DELETE_STORE_PHOTO,
-      id: action.id,
+      id: action.index,
     });
   });
   return next(action);

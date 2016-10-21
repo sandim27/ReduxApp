@@ -6,24 +6,22 @@ import { Button } from 'react-bootstrap';
 class PhotoView extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      index: props.photos.findIndex(photo => photo.id == props.params.id),
+    };
     this.deletePhoto = this.deletePhoto.bind(this);
   }
 
   deletePhoto(){
-
-    const index =  this.props.photos.findIndex(photo => photo.id == this.props.params.id);
-    this.props.deletePhoto(index, this.props.defaultSettings.url);
-    console.log(this.props.photos[index].id, this.props.params.id);
+    this.props.deletePhoto(this.props.photos[this.state.index].id, this.props.defaultSettings.url, this.state.index);
   }
 
   render() {
-
-    const index =  this.props.photos.findIndex(photo => photo.id == this.props.params.id);
-    const photo = this.props.photos[index];
+    const photo = this.props.photos[this.state.index];
     return (
       <div className="photo-view">
         <SinglePhoto photo={photo} />
-        <Comments {...this.props} photo={photo} index={index}/>
+        <Comments {...this.props} photo={photo} index={this.state.index}/>
         <Button bsStyle="danger" onClick={this.deletePhoto}>Delete</Button>
       </div>
     )
