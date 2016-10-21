@@ -2,7 +2,10 @@ import * as types from '../constants/ActionTypes';
 import { database } from '../api/photos';
 
 function getFromFirebase() {
-  return database.ref().once('value').then(data => data.val());
+  return database.ref().once('value')
+    .then(data =>
+      data.val().filter(photo => photo !== null)
+  );
 }
 
 export default function getPhotos() {
