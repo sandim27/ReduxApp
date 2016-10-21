@@ -8,6 +8,7 @@ import photos from './reducers/photos';
 import defaultSettings from './reducers/defaultSettings';
 import photo from './reducers/photo';
 
+import addNewComment from './middlewares/addNewComment';
 import promiseUsers from './middlewares/promisePhotos';
 import changePage from './middlewares/changePage';
 import uploadImage from './middlewares/uploadImage';
@@ -31,6 +32,7 @@ const createStoreWithMiddleware = applyMiddleware(
     promiseUsers,
     changePage,
     uploadImage,
+    addNewComment,
     addNewPhoto,
     deletePhoto,
     middlewareRoute,

@@ -5,16 +5,28 @@ const middleware = store => next => (action) => {
   if (action.type !== types.ADD_COMMENT) {
     return next(action);
   }
-  database.ref(action.id).child('comments').push();
-  database.ref(action.id).child('comments').set({
-    avatar: action.newComment.avatar,
-    name: action.newComment.name,
-    text: action.newComment.text,
-  }).then(() => store.dispatch({
-    type: types.GET_PHOTOS,
-    actions: [types.LOADING_PHOTOS, types.LOADED_PHOTOS, types.LOAD_FAILURE_PHOTOS],
-    promise: database.ref().once('value').then(data => data.val().filter(photo => photo !== null)),
-  }));
+  const photo = action.newComment.photo;
+  const id = action.newComment.id - 1;
+  database.ref().child(id).set(
+    Object.assign({}, {
+      ...photo,
+      comments: [
+        ...photo.comments ? photo.comments : '',
+        {
+          avatar: action.newComment.avatar,
+          name: action.newComment.name,
+          text: action.newComment.text,
+        },
+      ],
+    })
+  ).then(() => store.dispatch({
+    type: types.ADD_COMMENT_STORE,
+    newComment: {
+      avatar: action.newComment.avatar,
+      name: action.newComment.name,
+      text: action.newComment.text,
+      index: action.newComment.index,
+    } }));
   return next(action);
 };
 

@@ -10,11 +10,13 @@ export default class Comments extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    const photo = this.props.photo;
     const index = this.props.index;
+    const id = this.props.photo.id;
     const author = this.refs.author.value;
     const comment = this.refs.comment.value;
     const myAvatar = this.props.defaultSettings.myAvatar;
-    this.props.addComment(myAvatar, author, comment, index);
+    this.props.addComment(photo, myAvatar, author, comment, index, id);
     this.refs.commentForm.reset();
   }
 

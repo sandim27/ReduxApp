@@ -5,7 +5,7 @@ export default function (state = [], action) {
     case types.LOADED_PHOTOS:
       return action.data;
 
-    case types.ADD_COMMENT: {
+    case types.ADD_COMMENT_STORE: {
       const i = action.newComment.index;
       const newComment = {
         avatar: action.newComment.avatar,
