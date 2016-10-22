@@ -2,7 +2,7 @@ import React from 'react';
 
 import './assets/comment.scss';
 
-const Comment = ({ comment, indexPhoto, indexComment, removeComment }) => (
+const Comment = ({ photo, comment, indexPhoto, indexComment, id, removeComment }) => (
   <li>
     <span>
       <img src={comment.avatar} alt="avatar" />
@@ -12,7 +12,7 @@ const Comment = ({ comment, indexPhoto, indexComment, removeComment }) => (
     <i
       className="fa fa-times"
       aria-hidden="true"
-      onClick={removeComment.bind(null, indexPhoto, indexComment)}
+      onClick={removeComment.bind(null, photo, indexPhoto, indexComment, id)}
     />
   </li>
 );
@@ -24,4 +24,6 @@ Comment.propTypes = {
   indexPhoto: React.PropTypes.number,
   indexComment: React.PropTypes.number,
   removeComment: React.PropTypes.func,
+  id: React.PropTypes.number,
+  photo: React.PropTypes.object,
 };

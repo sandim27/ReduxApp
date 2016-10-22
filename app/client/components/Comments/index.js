@@ -27,9 +27,11 @@ export default class Comments extends React.Component {
           { this.props.photo.comments ? this.props.photo.comments.map((comment, indexComment) => (
             <Comment
               key={indexComment}
+              photo={this.props.photo}
               comment={comment}
               indexComment={indexComment}
               indexPhoto={this.props.index}
+              id={this.props.id}
               removeComment={this.props.removeComment}
             />
           )) : null}
@@ -47,6 +49,7 @@ export default class Comments extends React.Component {
 Comments.propTypes = {
   photo: React.PropTypes.object,
   index: React.PropTypes.number,
+  id: React.PropTypes.number,
   addComment: React.PropTypes.func,
   defaultSettings: React.PropTypes.object,
   removeComment: React.PropTypes.func,

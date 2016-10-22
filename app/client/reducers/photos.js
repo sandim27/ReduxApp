@@ -23,7 +23,7 @@ export default function (state = [], action) {
         ...state.slice(i + 1),
       ]; }
 
-    case types.REMOVE_COMMENT: {
+    case types.REMOVE_COMMENT_STORE: {
       const iPhoto = action.indexPhoto;
       const iComment = action.indexComment;
 

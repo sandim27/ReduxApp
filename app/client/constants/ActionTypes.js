@@ -7,6 +7,7 @@ export const SAVE_NEW_PAGE = 'SAVE_NEW_PAGE';
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const ADD_COMMENT_STORE = 'ADD_COMMENT_STORE';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
+export const REMOVE_COMMENT_STORE = 'REMOVE_COMMENT_STORE';
 export const GET_IMAGE_URL = 'GET_IMAGE_URL';
 export const UPLOAD_IMAGE = 'UPLOAD_IMAGE';
 export const ADD_PHOTO = 'ADD_PHOTO';

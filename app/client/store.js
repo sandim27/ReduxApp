@@ -14,6 +14,7 @@ import changePage from './middlewares/changePage';
 import uploadImage from './middlewares/uploadImage';
 import addNewPhoto from './middlewares/addNewPhoto';
 import deletePhoto from './middlewares/deletePhoto';
+import removeComment from './middlewares/removeComment';
 
 const middlewareRoute = routerMiddleware(browserHistory);
 
@@ -35,6 +36,7 @@ const createStoreWithMiddleware = applyMiddleware(
     addNewComment,
     addNewPhoto,
     deletePhoto,
+    removeComment,
     middlewareRoute,
     logger()
 )(createStore);

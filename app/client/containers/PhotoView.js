@@ -21,7 +21,7 @@ class PhotoView extends React.Component {
     return (
       <div className="photo-view">
         <SinglePhoto photo={photo} />
-        <Comments {...this.props} photo={photo} index={index}/>
+        <Comments {...this.props} photo={photo} index={index} id={photo.id}/>
         <Button bsStyle="danger" onClick={this.deletePhoto}>Delete</Button>
       </div>
     )
