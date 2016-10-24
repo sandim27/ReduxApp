@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import store, { history } from './store';
 
 import Main from './containers/Main/index';
-import Home from './containers/Home/Home';
+import Home from './containers/Home';
 import Photos from './containers/Photos';
 import PhotoView from './containers/PhotoView';
 

@@ -11,7 +11,7 @@ import photo from './reducers/photo';
 import addNewComment from './middlewares/addNewComment';
 import promiseUsers from './middlewares/promisePhotos';
 import changePage from './middlewares/changePage';
-import uploadImage from './middlewares/uploadImage';
+import uploadNewPhoto from './middlewares/uploadNewPhoto';
 import addNewPhoto from './middlewares/addNewPhoto';
 import deletePhoto from './middlewares/deletePhoto';
 import removeComment from './middlewares/removeComment';
@@ -32,7 +32,7 @@ const reducer = combineReducers({
 const createStoreWithMiddleware = applyMiddleware(
     promiseUsers,
     changePage,
-    uploadImage,
+    uploadNewPhoto,
     addNewComment,
     addNewPhoto,
     deletePhoto,
