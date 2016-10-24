@@ -5,7 +5,6 @@ import { push } from 'react-router-redux';
 import PhotoGrid from '../components/PhotoGrid'
 
 export default class Photos extends React.Component {
-
   constructor(props) {
     super(props);
     this.changePage = this.props.changePage.bind(this);

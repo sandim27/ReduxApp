@@ -1,5 +1,13 @@
 .comment-form {
   width: 100%;
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  padding: 30px 30px 46px 20px;
+  button {
+    float: right;
+  }
   input {
     width: 100%;
     margin-bottom: 10px;
@@ -8,3 +16,8 @@
   }
 }
 
+.photo-view{
+  .btn-danger {
+    margin-top: 30px;
+  }
+}

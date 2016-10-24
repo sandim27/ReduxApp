@@ -8,7 +8,7 @@ import store, { history } from './store';
 import Main from './containers/Main/index';
 import Home from './containers/Home';
 import Photos from './containers/Photos';
-import PhotoView from './containers/PhotoView';
+import SinglePhoto from './containers/SinglePhoto';
 
 const router = (
   <Provider store={store}>
@@ -16,7 +16,7 @@ const router = (
       <Route path="/" component={Main}>
         <IndexRoute component={Home} />
         <Route path="photos/:page" component={Photos} />
-        <Route path="photo/view/:id" component={PhotoView} />
+        <Route path="photo/view/:id" component={SinglePhoto} />
       </Route>
     </Router>
   </Provider>

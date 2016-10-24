@@ -1,8 +1,6 @@
 import React from 'react';
-
 import { Nav, NavItem } from 'react-bootstrap';
 import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap';
-
 import './assets/header.scss';
 
 const Header = ({ defaultSettings }) => (

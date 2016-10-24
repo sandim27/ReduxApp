@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import Header from '../../components/Header';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from '../../actions';
-
 import './assets/main.scss'
 
 class Main extends Component {

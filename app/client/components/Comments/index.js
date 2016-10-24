@@ -1,56 +1,60 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import './assets/comments.scss';
 import Comment from '../Comment';
 
-export default class Comments extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+const Comments = (props) => {
+  const {
+    photo,
+    index,
+    removeComment,
+    id,
+    addComment,
+    getAuthorValue,
+    getCommentValue,
+    comment,
+    author } = props;
 
-  handleSubmit(event) {
-    event.preventDefault();
-    const photo = this.props.photo;
-    const index = this.props.index;
-    const id = this.props.photo.id;
-    const author = this.refs.author.value;
-    const comment = this.refs.comment.value;
-    const myAvatar = this.props.defaultSettings.myAvatar;
-    this.props.addComment(photo, myAvatar, author, comment, index, id);
-    this.refs.commentForm.reset();
-  }
-
-  render() {
-    return (
-      <div className="photo-view_comments">
-        <ul>
-          { this.props.photo.comments ? this.props.photo.comments.map((comment, indexComment) => (
-            <Comment
-              key={indexComment}
-              photo={this.props.photo}
-              comment={comment}
-              indexComment={indexComment}
-              indexPhoto={this.props.index}
-              id={this.props.id}
-              removeComment={this.props.removeComment}
-            />
-          )) : null}
-        </ul>
-        <form ref="commentForm" className="comment-form" onSubmit={this.handleSubmit}>
-          <input type="text" ref="author" placeholder="author" />
-          <input type="text" ref="comment" placeholder="comment" />
-          <input type="submit" hidden />
-        </form>
+  return (
+    <div className="photo-view_comments">
+      <ul>
+        { props.photo.comments ? props.photo.comments.map((commentPhoto, indexComment) => (
+          <Comment
+            key={indexComment}
+            photo={photo}
+            comment={commentPhoto}
+            indexComment={indexComment}
+            indexPhoto={index}
+            id={id}
+            removeComment={removeComment}
+          />
+        )) : null}
+      </ul>
+      <div className="comment-form">
+        <input type="text" value={author} onChange={getAuthorValue} placeholder="author" />
+        <input type="text" value={comment} onChange={getCommentValue} placeholder="comment" />
+        <Button
+          bsStyle="primary"
+          bsSize="small"
+          onClick={addComment}
+        >
+          Add Comment
+        </Button>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 Comments.propTypes = {
   photo: React.PropTypes.object,
   index: React.PropTypes.number,
   id: React.PropTypes.number,
-  addComment: React.PropTypes.func,
-  defaultSettings: React.PropTypes.object,
   removeComment: React.PropTypes.func,
+  addComment: React.PropTypes.func,
+  getAuthorValue: React.PropTypes.func,
+  getCommentValue: React.PropTypes.func,
+  author: React.PropTypes.string,
+  comment: React.PropTypes.string,
 };
+
+export default Comments;
