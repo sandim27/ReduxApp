@@ -12,10 +12,17 @@ export default class Photos extends React.Component {
   }
 
   render() {
-    const pages = Math.ceil(this.props.photos.length/this.props.defaultSettings.perPage);
+    const { defaultSettings, photos } = this.props;
+    const pages = Math.ceil(photos.length/defaultSettings.perPage);
+    const perPage = defaultSettings.perPage;
+    const startOffset = perPage * (defaultSettings.url - 1);
+    const endOffset = perPage * defaultSettings.url;
+    const filteredPhotos = photos.filter(
+      (photo, index) => index >= startOffset && index < endOffset
+    );
     return (
       <section className="photoGrid">
-        <PhotoGrid {...this.props}/>
+        <PhotoGrid {...this.props} filteredPhotos={filteredPhotos} />
         <Pagination
           next
           prev
@@ -24,7 +31,7 @@ export default class Photos extends React.Component {
           boundaryLinks
           bsSize="small"
           items={pages}
-          activePage={this.props.defaultSettings.url}
+          activePage={defaultSettings.url}
           onSelect={this.changePage} />
       </section>
     );

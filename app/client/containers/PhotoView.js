@@ -1,6 +1,6 @@
 import React from 'react';
 import Comments from '../components/Comments';
-import SinglePhoto from '../components/SinglePhoto';
+import SinglePhoto from '../components/BlockPhoto';
 import { Button } from 'react-bootstrap';
 
 class PhotoView extends React.Component {

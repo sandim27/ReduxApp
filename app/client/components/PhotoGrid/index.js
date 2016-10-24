@@ -1,34 +1,21 @@
 import React from 'react';
 import { Grid, Row } from 'react-bootstrap';
-
+import PhotoItem from '../PhotoItem';
 import './assets/photoGrid.scss';
 
-import PhotoCol from '../PhotoCol';
+const PhotoGrid = props => (
+  <Grid>
+    <Row>
+      {props.filteredPhotos.map(photo => (
+        <PhotoItem photo={photo} key={photo.id} />
+      ))}
+    </Row>
+  </Grid>
+);
 
-const PhotoGrid = (props) => {
-  const perPage = props.defaultSettings.perPage;
-
-  const startOffset = perPage * (props.defaultSettings.url - 1);
-  const endOffset = perPage * props.defaultSettings.url;
-
-  const filteredPhotos = props.photos.filter(
-    (photo, index) => index >= startOffset && index < endOffset
-  );
-
-  return (
-    <Grid>
-      <Row>
-        {filteredPhotos.map(photo => (
-          <PhotoCol photo={photo} key={photo.id} />
-        ))}
-      </Row>
-    </Grid>
-  );
-};
 
 PhotoGrid.propTypes = {
-  photos: React.PropTypes.array,
-  defaultSettings: React.PropTypes.object,
+  filteredPhotos: React.PropTypes.array,
 };
 
 export default PhotoGrid;
