@@ -7,33 +7,29 @@ export default class Home extends Component {
     super(props);
     this.state = {
       newNamePhoto: '',
-      newUrlPhoto: {},
+      newPhoto: {},
     };
-    this.getUrlPhoto = this.getUrlPhoto.bind(this);
     this.uploadPhoto = this.uploadPhoto.bind(this);
     this.addNewPhoto = this.addNewPhoto.bind(this);
-    this.changeName = this.changeName.bind(this);
+    this.addPhotoName = this.addPhotoName.bind(this);
   }
 
-  getUrlPhoto(event){
-    this.setState({newUrlPhoto: event.target.files[0]});
+  uploadPhoto(event){
+    this.props.uploadPhoto(event.target.files[0]);
+    this.setState({newPhoto: event.target.files[0]});
   }
 
-  uploadPhoto() {
-    this.props.uploadPhoto(this.state.newUrlPhoto);
-  }
-
-  changeName(event) {
+  addPhotoName(event) {
     this.setState({newNamePhoto: event.target.value});
   }
 
   addNewPhoto() {
     const { photos, photo, addNewPhoto } = this.props;
-    const lengthPhotos = photos.length - 1;
+    const newPhoto = this.state.newPhoto;
     const newName = this.state.newNamePhoto;
     const newUrl = photo.url;
-    const newId = photos[lengthPhotos].id;
-    addNewPhoto(newName, newUrl, newId);
+    const newId = photos[0].id;
+    addNewPhoto(newPhoto, newName, newUrl, newId);
   }
 
   render() {
@@ -41,8 +37,19 @@ export default class Home extends Component {
     return (
       <div>
         <div className="upload-form">
-          <UploadBlock changeName={this.changeName} getUrlPhoto={this.getUrlPhoto} uploadPhoto={this.uploadPhoto} newUrlPhoto={this.state.newUrlPhoto} photo={photo} />
-          <Button bsStyle="primary" className="add-photo" bsSize="small" disabled={!this.state.newNamePhoto || !photo.url} onClick={this.addNewPhoto}>Add new photo</Button>
+          <UploadBlock
+            addPhotoName={this.addPhotoName}
+            uploadPhoto={this.uploadPhoto}
+            photo={photo}
+          />
+          <Button
+            bsStyle="primary"
+            className="add-photo"
+            bsSize="small"
+            disabled={!this.state.newNamePhoto || !photo.url}
+            onClick={this.addNewPhoto}>
+            Add new photo
+          </Button>
         </div>
       </div>
     );

@@ -32,7 +32,7 @@ const Comments = (props) => {
       </ul>
       <div className="comment-form">
         <input type="text" value={author} onChange={getAuthorValue} placeholder="author" />
-        <input type="text" value={comment} onChange={getCommentValue} placeholder="comment" />
+        <textarea type="text" value={comment} onChange={getCommentValue} placeholder="comment..." />
         <Button
           bsStyle="primary"
           bsSize="small"

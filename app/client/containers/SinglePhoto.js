@@ -1,6 +1,6 @@
 import React from 'react';
 import Comments from '../components/Comments';
-import BlockPhoto from '../components/BlockPhoto';
+import PhotoBlock from '../components/PhotoBlock';
 import { Button } from 'react-bootstrap';
 
 class SinglePhoto extends React.Component {
@@ -52,7 +52,7 @@ class SinglePhoto extends React.Component {
     const photo = this.props.photos[index];
     return (
       <div className="photo-view">
-        <BlockPhoto photo={photo} />
+        <PhotoBlock photo={photo} />
         <Comments
           {...this.props}
           photo={photo}

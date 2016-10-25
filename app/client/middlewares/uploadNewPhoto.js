@@ -6,10 +6,10 @@ const uploadNewPhoto = store => next => (action) => {
     return next(action);
   }
 
-  const storageFolder = 'photos/';
-  const storageRef = storage.ref(storageFolder + action.payload.url);
+  const storageFolder = 'temporary/';
+  const storageRef = storage.ref(storageFolder + action.payload.photo.name);
 
-  storageRef.put(action.payload.url)
+  storageRef.put(action.payload.photo)
     .then(() => storageRef.getDownloadURL())
     .then(url => store.dispatch({
       type: types.GET_PHOTO_URL,

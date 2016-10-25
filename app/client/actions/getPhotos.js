@@ -1,11 +1,11 @@
+import _ from 'lodash';
 import * as types from '../constants/ActionTypes';
 import { database } from '../api/photos';
 
 function getFromFirebase() {
   return database.ref().once('value')
-    .then(data =>
-      data.val().filter(photo => photo !== null)
-  );
+    .then(data => data.val().filter(photo => photo !== null))
+    .then(data => _.reverse(data));
 }
 
 export default function getPhotos() {

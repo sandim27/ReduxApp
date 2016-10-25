@@ -1,7 +1,8 @@
 .photo-view_img {
   img {
     display: block;
-    width: 600px;
+    max-width: 600px;
+    max-height: 600px;
     padding: 20px 0 40px 0;
   }
 }
