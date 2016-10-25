@@ -5,10 +5,12 @@ import UploadBlock from '../components/UploadBlock';
 export default class Home extends Component {
   constructor(props){
     super(props);
+
     this.state = {
       newNamePhoto: '',
       newPhoto: {},
     };
+
     this.uploadPhoto = this.uploadPhoto.bind(this);
     this.addNewPhoto = this.addNewPhoto.bind(this);
     this.addPhotoName = this.addPhotoName.bind(this);
@@ -24,29 +26,32 @@ export default class Home extends Component {
   }
 
   addNewPhoto() {
-    const { photos, photo, addNewPhoto } = this.props;
+    const { photos, uploadedImage, addNewPhoto } = this.props;
+
     const newPhoto = this.state.newPhoto;
     const newName = this.state.newNamePhoto;
-    const newUrl = photo.url;
+    const newUrl = uploadedImage.url;
     const newId = photos[0].id;
+
     addNewPhoto(newPhoto, newName, newUrl, newId);
   }
 
   render() {
-    const { photo } = this.props;
+    const { uploadedImage } = this.props;
+
     return (
       <div>
         <div className="upload-form">
           <UploadBlock
             addPhotoName={this.addPhotoName}
             uploadPhoto={this.uploadPhoto}
-            photo={photo}
+            uploadedImage={uploadedImage}
           />
           <Button
             bsStyle="primary"
             className="add-photo"
             bsSize="small"
-            disabled={!this.state.newNamePhoto || !photo.url}
+            disabled={!this.state.newNamePhoto || !uploadedImage.url}
             onClick={this.addNewPhoto}>
             Add new photo
           </Button>

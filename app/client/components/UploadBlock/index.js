@@ -2,7 +2,7 @@ import React from 'react';
 import './assets/uploadBlock.scss';
 
 const UploadBlock = (props) => {
-  const { addPhotoName, uploadPhoto, photo } = props;
+  const { addPhotoName, uploadPhoto, uploadedImage } = props;
   return (
     <div className="upload-block">
       <p>Please enter a name of photo</p>
@@ -14,7 +14,7 @@ const UploadBlock = (props) => {
           onChange={uploadPhoto}
         />
       </div>
-      <img src={photo.url} alt="" />
+      <img src={uploadedImage.url} alt="" />
     </div>
   );
 };
@@ -22,7 +22,7 @@ const UploadBlock = (props) => {
 UploadBlock.propTypes = {
   addPhotoName: React.PropTypes.func,
   uploadPhoto: React.PropTypes.func,
-  photo: React.PropTypes.object,
+  uploadedImage: React.PropTypes.object,
 };
 
 export default UploadBlock;

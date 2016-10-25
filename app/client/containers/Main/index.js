@@ -23,7 +23,7 @@ function mapStateToProps(state) {
   return {
     photos: state.photos,
     defaultSettings: state.defaultSettings,
-    photo: state.photo
+    uploadedImage: state.uploadedImage
   };
 }
 

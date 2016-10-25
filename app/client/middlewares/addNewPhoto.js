@@ -6,17 +6,18 @@ const middleware = store => next => (action) => {
   if (action.type !== types.ADD_PHOTO) {
     return next(action);
   }
-  const storageFolder = 'photos/';
-  const storageRef = storage.ref(storageFolder + action.photo.name);
 
-  storageRef.put(action.photo)
+  const storageFolder = 'photos/';
+  const storageRef = storage.ref(storageFolder + action.payload.photo.name);
+
+  storageRef.put(action.payload.photo)
   .then(() => storageRef.getDownloadURL())
   .then((url) => {
-    database.ref(action.id).push();
-    database.ref(action.id).set({
-      name: action.name,
+    database.ref(action.payload.id).push();
+    database.ref(action.payload.id).set({
+      name: action.payload.name,
       image: url,
-      id: action.id + 1,
+      id: action.payload.id + 1,
       comments: [],
     });
   })
@@ -25,7 +26,7 @@ const middleware = store => next => (action) => {
     actions: [types.LOADING_PHOTOS, types.LOADED_PHOTOS, types.LOAD_FAILURE_PHOTOS],
     promise: database.ref().once('value').then(data => data.val().filter(photo => photo !== null)).then(data => _.reverse(data)),
   }))
-  .then(() => storage.ref('temporary/' + action.photo.name).delete());
+  .then(() => storage.ref('temporary/' + action.payload.photo.name).delete());
 
   return next(action);
 };
