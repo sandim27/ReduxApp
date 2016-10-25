@@ -6,24 +6,30 @@ import { Button } from 'react-bootstrap';
 class SinglePhoto extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       author: '',
       comment:'',
     };
+
     this.deletePhoto = this.deletePhoto.bind(this);
     this.addComment = this.addComment.bind(this);
     this.getAuthorValue = this.getAuthorValue.bind(this);
     this.getCommentValue = this.getCommentValue.bind(this);
   }
 
-  getSinglePhoto(){
+  getIndexPhoto(){
     return this.props.photos.findIndex(photo => photo.id == this.props.params.id);
   }
 
   deletePhoto(){
     const{ photos, defaultSettings, deletePhoto } = this.props;
-    const index = this.getSinglePhoto();
-    deletePhoto(photos[index].id, defaultSettings.url, index);
+
+    const photoIndex = this.getIndexPhoto();
+    const pageUrl = defaultSettings.url;
+    const photoId = photos[photoIndex].id;
+
+    deletePhoto(photoId, pageUrl, photoIndex);
   }
 
   getAuthorValue(event){
@@ -36,20 +42,21 @@ class SinglePhoto extends React.Component {
 
   addComment() {
     const{ photos, defaultSettings, addComment } = this.props;
-    const index = this.getSinglePhoto();
+
+    const index = this.getIndexPhoto();
     const photo = photos[index];
-    const id = photo.id;
     const author = this.state.author;
     const comment = this.state.comment;
     const myAvatar = defaultSettings.myAvatar;
-
     this.setState({comment: '', author:''});
-    addComment(photo, myAvatar, author, comment, index, id);
+
+    addComment(photo, myAvatar, author, comment, index);
   }
 
   render() {
-    const index = this.getSinglePhoto();
+    const index = this.getIndexPhoto();
     const photo = this.props.photos[index];
+
     return (
       <div className="photo-view">
         <PhotoBlock photo={photo} />
@@ -57,7 +64,6 @@ class SinglePhoto extends React.Component {
           {...this.props}
           photo={photo}
           index={index}
-          id={photo.id}
           comment={this.state.comment}
           author={this.state.author}
           addComment={this.addComment}

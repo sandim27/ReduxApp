@@ -5,12 +5,19 @@ export default function (state = [], action) {
     case types.LOADED_PHOTOS:
       return action.data;
 
+    case types.DELETE_STORE_PHOTO: {
+      const index = action.payload.index;
+      return [
+        ...state.slice(0, index),
+        ...state.slice(index + 1),
+      ];
+    }
     case types.ADD_COMMENT_STORE: {
-      const i = action.newComment.index;
+      const i = action.payload.index;
       const newComment = {
-        avatar: action.newComment.avatar,
-        name: action.newComment.name,
-        text: action.newComment.text,
+        avatar: action.payload.avatar,
+        name: action.payload.name,
+        text: action.payload.text,
       };
       return [
         ...state.slice(0, i),
@@ -21,29 +28,21 @@ export default function (state = [], action) {
           ],
         },
         ...state.slice(i + 1),
-      ]; }
-
+      ];
+    }
     case types.REMOVE_COMMENT_STORE: {
-      const iPhoto = action.indexPhoto;
-      const iComment = action.indexComment;
+      const iPhoto = action.payload.indexPhoto;
+      const iComment = action.payload.indexComment;
 
       return [
         ...state.slice(0, iPhoto),
-        {
-          ...state[iPhoto],
+        { ...state[iPhoto],
           comments: [
             ...state[iPhoto].comments.slice(0, iComment),
             ...state[iPhoto].comments.slice(iComment + 1),
           ],
         },
         ...state.slice(iPhoto + 1),
-      ];
-    }
-    case types.DELETE_STORE_PHOTO: {
-      const id = action.id;
-      return [
-        ...state.slice(0, id),
-        ...state.slice(id + 1),
       ];
     }
     default:

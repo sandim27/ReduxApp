@@ -8,7 +8,6 @@ const Comments = (props) => {
     photo,
     index,
     removeComment,
-    id,
     addComment,
     getAuthorValue,
     getCommentValue,
@@ -25,7 +24,6 @@ const Comments = (props) => {
             comment={commentPhoto}
             indexComment={indexComment}
             indexPhoto={index}
-            id={id}
             removeComment={removeComment}
           />
         )) : null}
@@ -48,7 +46,6 @@ const Comments = (props) => {
 Comments.propTypes = {
   photo: React.PropTypes.object,
   index: React.PropTypes.number,
-  id: React.PropTypes.number,
   removeComment: React.PropTypes.func,
   addComment: React.PropTypes.func,
   getAuthorValue: React.PropTypes.func,

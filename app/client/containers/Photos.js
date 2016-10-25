@@ -1,8 +1,7 @@
-import { Pagination } from 'react-bootstrap';
-import 'bootstrapCss';
 import React from 'react';
-import { push } from 'react-router-redux';
+import { Pagination } from 'react-bootstrap';
 import PhotoGrid from '../components/PhotoGrid'
+import 'bootstrapCss';
 
 export default class Photos extends React.Component {
   constructor(props) {
@@ -12,6 +11,7 @@ export default class Photos extends React.Component {
 
   render() {
     const { defaultSettings, photos } = this.props;
+
     const pages = Math.ceil(photos.length/defaultSettings.perPage);
     const perPage = defaultSettings.perPage;
     const startOffset = perPage * (defaultSettings.url - 1);
@@ -19,6 +19,7 @@ export default class Photos extends React.Component {
     const filteredPhotos = photos.filter(
       (photo, index) => index >= startOffset && index < endOffset
     );
+
     return (
       <section className="photoGrid">
         <PhotoGrid {...this.props} filteredPhotos={filteredPhotos} />

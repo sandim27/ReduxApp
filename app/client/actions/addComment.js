@@ -1,12 +1,11 @@
 import * as types from '../constants/ActionTypes';
 
-export default function addComment(photo, avatar, name, text, index, id) {
+export default function addComment(photo, avatar, name, text, index) {
   return {
     type: types.ADD_COMMENT,
-    newComment: {
+    payload: {
       photo,
       index,
-      id,
       avatar,
       name,
       text,

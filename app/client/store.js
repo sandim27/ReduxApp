@@ -46,7 +46,6 @@ const store = createStoreWithMiddleware(reducer, {
   defaultSettings: {
     url: 1,
     perPage: 12,
-    counter: 0,
     myAvatar: 'https://robohash.org/eumetea.bmp?size=20x20&set=set1',
   },
   uploadedImage: {

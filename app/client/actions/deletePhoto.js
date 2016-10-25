@@ -3,8 +3,10 @@ import * as types from '../constants/ActionTypes';
 export default function deletePhoto(id, page, index) {
   return {
     type: types.DELETE_PHOTO,
-    id,
-    page,
-    index,
+    payload: {
+      id,
+      page,
+      index,
+    },
   };
 }

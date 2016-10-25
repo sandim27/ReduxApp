@@ -5,13 +5,14 @@ const middleware = store => next => (action) => {
   if (action.type !== types.CHANGE_PAGE) {
     return next(action);
   }
+
   store.dispatch(
-    push(`/photos/${action.page}`)
+    push(`/photos/${action.payload.page}`)
   );
 
   store.dispatch({
     type: types.SAVE_NEW_PAGE,
-    page: action.page,
+    page: action.payload.page,
   });
 
   return next(action);

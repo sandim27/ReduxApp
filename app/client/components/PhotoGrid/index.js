@@ -13,7 +13,6 @@ const PhotoGrid = props => (
   </Grid>
 );
 
-
 PhotoGrid.propTypes = {
   filteredPhotos: React.PropTypes.array,
 };

@@ -1,11 +1,12 @@
 import * as types from '../constants/ActionTypes';
 
-export default function removeComment(photo, indexPhoto, indexComment, id) {
+export default function removeComment(photo, indexPhoto, indexComment) {
   return {
     type: types.REMOVE_COMMENT,
-    photo,
-    indexPhoto,
-    indexComment,
-    id,
+    payload: {
+      photo,
+      indexPhoto,
+      indexComment,
+    },
   };
 }
