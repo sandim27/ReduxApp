@@ -34,6 +34,7 @@ const Comments = (props) => {
         <Button
           bsStyle="primary"
           bsSize="small"
+          disabled={!author || !comment}
           onClick={addComment}
         >
           Add Comment

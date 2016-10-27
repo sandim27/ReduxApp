@@ -13,18 +13,34 @@
   #fileUpload {
     padding-left: 0;
   }
-  img {
-    display: block;
-    max-height: 200px;
-    margin: 0 auto 30px auto;
+  .activeImages {
+    display: flex;
+    justify-content: center;
+    img {
+      max-height: 200px;
+      margin: 0 auto 30px auto;
+    }
+    .preloader {
+      height: 40px;
+    }
   }
+
   input {
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 2px;
     border-radius: 4px;
     padding-left: 5px;
   }
+  span {
+    font-size: 12px;
+    color: red;
+  }
   .add-photo {
     width: 100%;
+  }
+  p{
+    color:green;
+    text-align: center;
+    margin: 10px 0 0 0;
   }
 }

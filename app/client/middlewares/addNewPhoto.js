@@ -26,6 +26,13 @@ const middleware = store => next => (action) => {
     actions: [types.LOADING_PHOTOS, types.LOADED_PHOTOS, types.LOAD_FAILURE_PHOTOS],
     promise: database.ref().once('value').then(data => data.val().filter(photo => photo !== null)).then(data => _.reverse(data)),
   }))
+  .then(() => store.dispatch(
+    {
+      type: types.GET_PHOTO_NAME,
+      payload: {
+        name: action.payload.name,
+      },
+    }))
   .then(() => storage.ref('temporary/' + action.payload.photo.name).delete());
 
   return next(action);

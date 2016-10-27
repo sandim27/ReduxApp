@@ -9,6 +9,7 @@ export const ADD_COMMENT_STORE = 'ADD_COMMENT_STORE';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 export const REMOVE_COMMENT_STORE = 'REMOVE_COMMENT_STORE';
 export const GET_PHOTO_URL = 'GET_PHOTO_URL';
+export const GET_PHOTO_NAME = 'GET_PHOTO_NAME';
 export const UPLOAD_PHOTO = 'UPLOAD_PHOTO';
 export const ADD_PHOTO = 'ADD_PHOTO';
 export const DELETE_PHOTO = 'DELETE_PHOTO';

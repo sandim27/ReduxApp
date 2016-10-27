@@ -9,6 +9,7 @@ export default class Home extends Component {
     this.state = {
       newNamePhoto: '',
       newPhoto: {},
+      activeName: true,
     };
 
     this.uploadPhoto = this.uploadPhoto.bind(this);
@@ -19,10 +20,15 @@ export default class Home extends Component {
   uploadPhoto(event){
     this.props.uploadPhoto(event.target.files[0]);
     this.setState({newPhoto: event.target.files[0]});
+    if(this.state.newNamePhoto)
+      this.setState({activeName: true})
+    else
+      this.setState({activeName: false})
   }
 
   addPhotoName(event) {
     this.setState({newNamePhoto: event.target.value});
+    this.setState({activeName: true})
   }
 
   addNewPhoto() {
@@ -38,7 +44,6 @@ export default class Home extends Component {
 
   render() {
     const { uploadedImage } = this.props;
-
     return (
       <div>
         <div className="upload-form">
@@ -46,6 +51,8 @@ export default class Home extends Component {
             addPhotoName={this.addPhotoName}
             uploadPhoto={this.uploadPhoto}
             uploadedImage={uploadedImage}
+            newPhoto={this.state.newPhoto}
+            activeName={this.state.activeName}
           />
           <Button
             bsStyle="primary"
@@ -55,6 +62,7 @@ export default class Home extends Component {
             onClick={this.addNewPhoto}>
             Add new photo
           </Button>
+          <p hidden={!uploadedImage.name}><strong>{uploadedImage.name }</strong> the photo was successfully uploaded!</p>
         </div>
       </div>
     );
