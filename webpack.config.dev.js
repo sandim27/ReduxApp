@@ -7,7 +7,7 @@ module.exports = {
     entry: [
         'webpack-dev-server/client?http://localhost:8080',
         'webpack/hot/only-dev-server',
-        './app/client/app'
+        './app/app'
     ],
     output: {
         path: __dirname,
@@ -30,10 +30,10 @@ module.exports = {
                 test: /\.js$/,
                 loaders: ['eslint'],
                 include: [
-                    path.resolve(__dirname, "app/client"),
+                    path.resolve(__dirname, "app"),
                 ],
                 exclude: [
-                    path.resolve(__dirname, "app/client/containers"),
+                    path.resolve(__dirname, "app/containers"),
                 ],
             }
         ],
@@ -41,7 +41,7 @@ module.exports = {
             {   test: /\.js$/,
                 loaders: ['react-hot', 'babel-loader'],
                 include: [
-                    path.resolve(__dirname, "app/client"),
+                    path.resolve(__dirname, "app"),
                 ],
                 test: /\.js$/,
                 plugins: ['transform-runtime'],
