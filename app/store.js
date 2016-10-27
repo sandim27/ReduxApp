@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import logger from 'redux-logger';
 
 import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux';
-import { browserHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 
 import photos from './reducers/photos';
 import defaultSettings from './reducers/defaultSettings';
@@ -16,7 +16,7 @@ import addNewPhoto from './middlewares/addNewPhoto';
 import deletePhoto from './middlewares/deletePhoto';
 import removeComment from './middlewares/removeComment';
 
-const middlewareRoute = routerMiddleware(browserHistory);
+const middlewareRoute = routerMiddleware(hashHistory);
 
 const enchancers = compose(
   window.devToolsExtension ? window.devToolsExtension() : f => f
@@ -55,6 +55,6 @@ const store = createStoreWithMiddleware(reducer, {
 }, enchancers);
 
 
-export const history = syncHistoryWithStore(browserHistory, store);
+export const history = syncHistoryWithStore(hashHistory, store);
 
 export default store;
