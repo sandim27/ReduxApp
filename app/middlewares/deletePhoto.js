@@ -1,5 +1,5 @@
 import { push } from 'react-router-redux';
-import { database } from '../api/photos';
+import { database } from '../config';
 import * as types from '../constants/ActionTypes';
 
 const middleware = store => next => (action) => {

@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { database, storage } from '../api/photos';
+import { database, storage } from '../config';
 import * as types from '../constants/ActionTypes';
 
 const middleware = store => next => (action) => {

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import * as types from '../constants/ActionTypes';
-import { database } from '../api/photos';
+import { database } from '../config';
 
 function getFromFirebase() {
   return database.ref().once('value')

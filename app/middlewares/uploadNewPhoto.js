@@ -1,5 +1,5 @@
 import * as types from '../constants/ActionTypes';
-import { storage } from '../api/photos';
+import { storage } from '../config';
 
 const uploadNewPhoto = store => next => (action) => {
   if (action.type !== types.UPLOAD_PHOTO) {
