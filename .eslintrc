@@ -9,13 +9,9 @@
   ],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "no-trailing-spaces": 0,
     "linebreak-style": 0,
     "react/forbid-prop-types": 0,
-    "react/no-string-refs":0,
     "jsx-a11y/img-redundant-alt":0,
     "react/jsx-no-bind":0,
-    "class-methods-use-this":0,
-    "prefer-template":0,
   }
 }

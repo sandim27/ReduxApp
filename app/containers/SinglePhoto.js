@@ -3,7 +3,7 @@ import Comments from '../components/Comments';
 import PhotoBlock from '../components/PhotoBlock';
 import { Button } from 'react-bootstrap';
 
-class SinglePhoto extends React.Component {
+export default class SinglePhoto extends React.Component {
   constructor(props) {
     super(props);
 
@@ -16,6 +16,7 @@ class SinglePhoto extends React.Component {
     this.addComment = this.addComment.bind(this);
     this.getAuthorValue = this.getAuthorValue.bind(this);
     this.getCommentValue = this.getCommentValue.bind(this);
+    this.getIndexPhoto = this.getIndexPhoto.bind(this);
   }
 
   getIndexPhoto(){
@@ -56,7 +57,6 @@ class SinglePhoto extends React.Component {
   render() {
     const index = this.getIndexPhoto();
     const photo = this.props.photos[index];
-
     return (
       <div className="photo-view">
         <PhotoBlock photo={photo} />
@@ -75,5 +75,3 @@ class SinglePhoto extends React.Component {
     )
   }
 };
-
-export default SinglePhoto;

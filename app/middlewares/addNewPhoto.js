@@ -33,10 +33,9 @@ const middleware = store => next => (action) => {
         name: action.payload.name,
       },
     }))
-  .then(() => storage.ref('temporary/' + action.payload.photo.name).delete());
+  .then(() => storage.ref(`temporary/${action.payload.photo.name}`).delete());
 
   return next(action);
 };
 
 export default middleware;
-

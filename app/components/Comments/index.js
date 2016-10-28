@@ -13,7 +13,6 @@ const Comments = (props) => {
     getCommentValue,
     comment,
     author } = props;
-
   return (
     <div className="photo-view_comments">
       <ul>
@@ -53,6 +52,14 @@ Comments.propTypes = {
   getCommentValue: React.PropTypes.func,
   author: React.PropTypes.string,
   comment: React.PropTypes.string,
+};
+
+Comments.defaultProps = {
+  photo: {
+    name: '',
+    image: '',
+    comments: [],
+  },
 };
 
 export default Comments;

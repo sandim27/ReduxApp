@@ -12,4 +12,12 @@ BlockPhoto.propTypes = {
   photo: React.PropTypes.object,
 };
 
+BlockPhoto.defaultProps = {
+  photo: {
+    name: '',
+    image: '',
+    comments: [],
+  },
+};
+
 export default BlockPhoto;

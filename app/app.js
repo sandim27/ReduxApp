@@ -18,7 +18,6 @@ const router = (
         <IndexRoute component={Home} />
         <Route path="photos/:page" component={Photos} />
         <Route path="photo/view/:id" component={SinglePhoto} />
-        <Route path="photo/view/:id" component={SinglePhoto} />
         <Route path="*" component={NotFound} />
       </Route>
     </Router>

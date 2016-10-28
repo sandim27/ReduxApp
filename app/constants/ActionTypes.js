@@ -14,4 +14,3 @@ export const UPLOAD_PHOTO = 'UPLOAD_PHOTO';
 export const ADD_PHOTO = 'ADD_PHOTO';
 export const DELETE_PHOTO = 'DELETE_PHOTO';
 export const DELETE_STORE_PHOTO = 'DELETE_STORE_PHOTO';
-
