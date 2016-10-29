@@ -1,5 +1,4 @@
 import React from 'react';
-import './assets/singlePhoto.scss';
 
 const BlockPhoto = ({ photo }) => (
   <div className="photo-view_img">

@@ -20,4 +20,16 @@
   .btn-danger {
     margin-top: 30px;
   }
+  ul {
+    padding-left: 0;
+  }
+}
+
+.photo-view_img {
+  img {
+    display: block;
+    max-width: 600px;
+    max-height: 600px;
+    padding: 20px 0 40px 0;
+  }
 }
